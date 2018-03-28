@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/segiddins'
   spec.license       = 'MIT'
 
-  spec.files         = Dir[File.join(__dir__, '{lib/**/*.rb,exe/*,*.{md,txt}}')]
+  spec.files         = Dir[File.join(__dir__, '{lib/**/*.rb,exe/*,*.{md,txt}}')].map {|f| f.gsub(__dir__ + ?/, '') }
   spec.bindir        = 'exe'
   spec.executables   = ['chronometer']
   spec.require_paths = ['lib']
