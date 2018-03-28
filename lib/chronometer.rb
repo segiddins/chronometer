@@ -70,7 +70,7 @@ class Chronometer
     timer = self
 
     cls.send(:define_method, method) do |*args, &blk|
-      context = event.context&.call(self)
+      context = event.context.call(self) if event.context
       args_dict = arg_labels.zip(args).to_h
       args_dict[:context] = context if context
 
@@ -121,7 +121,7 @@ class Chronometer
         event_type: :I,
         name: event_name
       }
-      args.update blk&.call(tp)
+      args.update blk.call(tp) if blk
 
       te = TraceEvent.new(**args)
       register_trace_event(te)

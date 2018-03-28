@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chronometer (0.1.3)
+    chronometer (0.1.4)
       claide (~> 1.0)
 
 GEM

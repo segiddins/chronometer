@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/segiddins'
   spec.license       = 'MIT'
 
-  spec.files         = Dir[File.join(__dir__, '{lib/**/*.rb,exe/*,*.{md,txt},VERSION}')].map {|f| f.gsub(__dir__ + ?/, '') }
+  spec.files         = Dir[File.join(__dir__, '{lib/**/*.rb,exe/*,*.{md,txt},VERSION}')].map { |f| f.gsub(__dir__ + '/', '') }
   spec.bindir        = 'exe'
   spec.executables   = ['chronometer']
   spec.require_paths = ['lib']
@@ -22,5 +22,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.7'
   spec.add_development_dependency 'rubocop', '~> 0.54.0'
 
-  spec.required_ruby_version = '>= 2.3'
+  spec.required_ruby_version = '>= 2.1'
 end
