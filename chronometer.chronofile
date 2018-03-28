@@ -1,0 +1,23 @@
+# frozen_string_literal: true
+
+for_class CLAide::ARGV do
+  method :shift_argument
+end
+
+for_class Chronometer::Command::Chronometer do
+  method :run
+end
+
+for_singleton_class Chronometer::Command::Chronometer do
+  method :run
+end
+
+tracepoint :raise do |tp|
+  e = tp.raised_exception
+  {
+    event_type: :I,
+    name: :raise,
+    category: e.class.name,
+    args: { class: e.class, message: e.message, path: tp.path, lineno: tp.lineno }
+  }
+end
