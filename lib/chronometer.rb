@@ -34,6 +34,20 @@ class Chronometer
     nil
   end
 
+  def associate_sub_slices!
+    parents = []
+    @trace_events.each do |event|
+      case event.event_type
+      when :B
+        parents << event
+      when :E
+        parent = parents.pop
+        event.sub_slices.replace parent.sub_slices if parent
+        parents.last.sub_slices << event unless parents.empty?
+      end
+    end
+  end
+
   def print_trace_event_report(dest, metadata: {})
     raise ArgumentError, 'cannot manually specify :traceEvents' if metadata.key?(:traceEvents)
     require 'json'
