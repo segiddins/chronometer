@@ -39,10 +39,10 @@ class Chronometer
                                help!("No such chronofile `#{@chronofile}`")
                              end
       help! 'Must supply a ruby file to load' unless @file_to_load
-      @file_to_load = ENV.fetch('PATH', '').split(File::PATH_SEPARATOR).push('.').reduce do |a, e|
+      @file_to_load = ENV.fetch('PATH', '').split(File::PATH_SEPARATOR).push('.').reduce(nil) do |a, e|
         next a if a
-        a ||= File.join(e, @file_to_load)
-        a &&= nil unless File.file?(a)
+        a = File.join(e, @file_to_load)
+        next nil unless File.file?(a)
         a
       end
       help! "Could not find `#{@file_to_load}`" unless @file_to_load

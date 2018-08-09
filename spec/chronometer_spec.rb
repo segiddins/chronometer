@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'json'
+require 'open3'
 
 RSpec.describe Chronometer do
   it 'has a version number' do
@@ -8,8 +9,8 @@ RSpec.describe Chronometer do
   end
 
   it 'does something useful' do
-    expect(system('bundle', 'exec', 'exe/chronometer', 'chronometer.chronofile', '--', 'exe/chronometer', '--version', out: '/dev/null'))
-      .to eq true
+    _stdout, stderr, status = Open3.capture3('bundle', 'exec', 'exe/chronometer', 'chronometer.chronofile', '--', 'exe/chronometer', '--version')
+    expect(status).to be_success, stderr
 
     tracefile = File.expand_path('../chronometer.chronofile.trace', __dir__)
     expect(JSON.parse(File.read(tracefile)))
