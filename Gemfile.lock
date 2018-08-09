@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chronometer (0.1.4)
+    chronometer (0.2.0)
       claide (~> 1.0)
 
 GEM
@@ -50,4 +50,4 @@ DEPENDENCIES
   rubocop (~> 0.54.0)
 
 BUNDLED WITH
-   1.16.1
+   1.16.3
