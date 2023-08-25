@@ -17,10 +17,10 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency     'claide', '~> 1.0'
 
-  spec.add_development_dependency 'bundler', '~> 1.16'
-  spec.add_development_dependency 'rake', '~> 10.5'
-  spec.add_development_dependency 'rspec', '~> 3.7'
-  spec.add_development_dependency 'rubocop', '~> 0.54.0'
+  spec.add_development_dependency 'bundler', '~> 2.4'
+  spec.add_development_dependency 'rake', '~> 13.0'
+  spec.add_development_dependency 'rspec', '~> 3.12'
+  spec.add_development_dependency 'rubocop', '~> 1.56.0'
 
-  spec.required_ruby_version = '>= 2.1'
+  spec.required_ruby_version = '>= 3.2'
 end
