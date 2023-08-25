@@ -28,7 +28,7 @@ class Chronometer
       opts[:method] = method_name
       opts[:event_type] ||= :X
       opts[:cls] = @cls || raise('must be in for_class block')
-      events << Event.new(opts)
+      events << Event.new(**opts)
     end
 
     def methods(*method_names, **opts)
